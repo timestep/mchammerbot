@@ -7,6 +7,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/keypress.js"></script>
 
+
   </head>
   <body>
     <div class="container">
@@ -29,12 +30,12 @@
       trn = 0
       stf = 0
 
-
+      ////BUTTON INTERACTION
       $('.btn-large').data('url', "http://127.0.0.1:8071/motion-control/update");
       $('#forward').data('movement', {forward: 1});
       $('#backward').data('movement', {forward: -1});
       $('#turn_right').data('movement', {turn: 1});
-      $('#turn_left').data('movement', {forward: -1});
+      $('#turn_left').data('movement', {turn: -1});
       $('#strafe_right').data('movement', {strafe: 1});
       $('#strafe_left').data('movement', {strafe: -1});
       $('#stop').data('movement', {forward: 0})
@@ -45,6 +46,78 @@
         // motionControl.value
         $.ajax({url: motionControl.url, data: motionControl.movement, dataType: "jsonp"});
       });      
+      
+      ///KEYBOARDINTERACTION
+      keycombos = {
+        "w":{forward:1},
+        "s":{forward:-1},
+        "a":{turn:-1},
+        "d":{turn:1},
+        "q":{strafe:1},
+        "e":{strafe:-1}
+      };
+
+      // var my_combos = [];
+      // var my_scope = this;
+        
+      // for (i in keycombos){
+      //   var tempFunc = function() {
+      //         console.log(i);
+      //         $.ajax({url:"http://127.0.0.1:8071/motion-control/update", data:keycombos[i], dataType: "jsonp"})};
+      //   tempVal = {
+      //     "keys"          : i,
+      //     "is_exclusive"  : true,
+      //     "val":keycombos[i],
+      //     "on_keydown"    : tempFunc,
+      //     "on_keyup"      : function() {
+      //         console.log("Stopping");
+      //         $.ajax({url:"http://127.0.0.1:8071/motion-control/update", dataType: "jsonp"});
+      //     },
+      //     "this"          : my_scope
+      //     };
+      //     my_combos.push(tempVal);  
+      //   }
+      // keypress.register_many(my_combos);
+          my_scope = this;
+          my_combos = [
+              {
+                  "keys"          : "shift s",
+                  "is_exclusive"  : true,
+                  "on_keydown"    : function() {
+                      console.log("You pressed shift and s together.");
+                  },
+                  "on_keyup"      : function(e) {
+                      console.log("And now you've released one of the keys.");
+                  },
+                  "this"          : my_scope
+              },
+              {
+                  "keys"          : "s",
+                  "is_exclusive"  : true,
+                  "on_keyup"      : function(event) {
+                      event.preventDefault();
+                      console.log("We've prevented the s key from doing anything!");
+                  },
+                  "this"          : my_scope
+              }
+          ];
+          keypress.register_many(my_combos);
+              // },
+              // {
+              //     "keys"          : "right",
+              //     "is_exclusive"  : true,
+              //     "on_keydown"    : function() {
+              //         console.log("Backward");
+              //         $.ajax({url:"http://127.0.0.1:8071/motion-control/update", data: {forward: -1}, dataType: "jsonp"});
+              //     },
+              //     "on_keyup"      : function(e) {
+              //         console.log("Stopping");
+              //         $.ajax({url:"http://127.0.0.1:8071/motion-control/update", dataType: "jsonp"});
+              //     },
+              //     "this"          : my_scope
+              // },
+
+          // ];
 
       // $('#forward').click(function() {
       //   console.log("Forward.");
