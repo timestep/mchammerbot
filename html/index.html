@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MC Hammer Bot</title>
+    <title>Bender</title>
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -10,18 +10,69 @@
   <body>
     <div class="container">
       <div class="hero-unit">
-      <h1>Hello, world!</h1>
-      <button class='btn-large'>Forward</button>
+      <h1> Bender Bending Rodriguez </h1>
+      <p>Kiss my shiny metal ass.</p>
+      <button id='forward' class='btn-large'>Forward</button>
+      <button id='backward' class='btn-large'>Backward</button>
+      <button id='turn_right' class='btn-large'>Turn Right</button>
+      <button id='turn_left' class='btn-large'>Turn Left</button>
+      <button id='strafe_right' class='btn-large'>Strafe Right</button>
+      <button id='strafe_left' class='btn-large'>Strafe Left</button>
+      <button id='stop' class='btn-large'>Stop</button>
      </div>  
     </div>
 
     <script>
 
-      // $('.btn-large').click(function() {
-        $.get("http://127.0.0.1:8071/motion-control/update", {forward: 1}, "jsonp");
+      $('.control').click(function(e) {
+        var motionControl = $(this).data();
+        motionControl.direction
+        motionControl.value
+        $.ajax({url:"http://127.0.0.1:8071/motion-control/update", data: {forward: 1}, dataType: "jsonp"});
+      });      
 
-      // });
+      $('#forward').click(function() {
+        console.log("Forward.");
+        // test = $.get('http://127.0.0.1:8071/motion-control/update',{forward: 1},'jsonp');       
+        $.ajax({url:"http://127.0.0.1:8071/motion-control/update", data: {forward: 1}, dataType: "jsonp"});
+      });
 
+      $('#backward').click(function() {
+        console.log("Backwards.");
+        // test = $.get('http://127.0.0.1:8071/motion-control/update',{forward: 1},'jsonp');       
+        $.ajax({url:"http://127.0.0.1:8071/motion-control/update", data: {forward: -1}, dataType: "jsonp"});
+      });
+
+      $('#turn_right').click(function() {
+        console.log("Turn Right.");
+        // test = $.get('http://127.0.0.1:8071/motion-control/update',{forward: 1},'jsonp');       
+        $.ajax({url:"http://127.0.0.1:8071/motion-control/update", data: {turn: 1}, dataType: "jsonp"});
+      });
+
+      $('#turn_left').click(function() {
+        console.log("Turn Left.");
+        // test = $.get('http://127.0.0.1:8071/motion-control/update',{forward: 1},'jsonp');       
+        $.ajax({url:"http://127.0.0.1:8071/motion-control/update", data: {turn: -1}, dataType: "jsonp"});
+      });
+
+      $('#strafe_right').click(function() {
+        console.log("Strafe Right.");
+        // test = $.get('http://127.0.0.1:8071/motion-control/update',{forward: 1},'jsonp');       
+        $.ajax({url:"http://127.0.0.1:8071/motion-control/update", data: {strafe: 1}, dataType: "jsonp"});
+      });
+
+      $('#strafe_left').click(function() {
+        console.log("Strafe Left.");
+        // test = $.get('http://127.0.0.1:8071/motion-control/update',{forward: 1},'jsonp');       
+        $.ajax({url:"http://127.0.0.1:8071/motion-control/update", data: {strafe: -1}, dataType: "jsonp"});
+      });
+
+      $('#stop').click(function() {
+        console.log("Stop");
+        // test = $.get('http://127.0.0.1:8071/motion-control/update',{forward: 1},'jsonp');       
+        $.ajax({url:"http://127.0.0.1:8071/motion-control/update", dataType: "jsonp"});
+        // $.ajax({url:"http://127.0.0.1:8071/motion-control/update", data: {strafe: 0}, dataType: "jsonp"});
+      });
 
     </script>
   </body>
