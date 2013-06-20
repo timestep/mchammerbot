@@ -24,9 +24,14 @@
 
     <script>
 
+      fwd = 0
+      trn = 0
+      stf = 0
+
+
       $('.btn-large').data('url', "http://127.0.0.1:8071/motion-control/update");
-      $('#forward').data('movement', {forward: 1});
-      $('#backward').data('movement', {forward: -1});
+      $('#forward').data('movement', {forward: fwd});
+      $('#backward').data('movement', {forward: fwd});
       $('#turn_right').data('movement', {turn: 1});
       $('#turn_left').data('movement', {forward: -1});
       $('#strafe_right').data('movement', {strafe: 1});
