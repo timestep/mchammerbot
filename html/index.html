@@ -90,7 +90,24 @@
         my_combos.push(tempVal);  
       }
 
+      var tempVal = {
+          "keys"          : "w a",
+          "is_exclusive"  : true,
+          "on_keydown"    : function(e) {
+              console.log('w and a');
+              // var key = String.fromCharCode(e.which).toLowerCase();
+              $.ajax({url:"http://127.0.0.1:8071/motion-control/update", data:{strafe:1}, dataType: "jsonp"});
+          },
+          "on_keyup"      : function(e) {
+              console.log("Stopping");
+              $.ajax({url:"http://127.0.0.1:8071/motion-control/update", dataType: "jsonp"});
+          },
+          "this"          : my_scope
+        };
+      my_combos.push(tempVal);
+
       keypress.register_many(my_combos);
+
           // my_scope = this;
           // my_combos = [
           //     {
