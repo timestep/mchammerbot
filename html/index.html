@@ -5,12 +5,26 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
+
   </head>
   <body>
     <div class="container">
       <div class="hero-unit">
       <h1>Hello, world!</h1>
-      </div>  
+      <button class='btn-large'>Forward</button>
+     </div>  
     </div>
+
+    <script>
+
+      $('.btn-large').click(function() {
+
+        console.log("Forward.");
+        $.ajax({type:"POST", url: "127.0.0.1:8071/motion-control/update", data: {forward: 1}, dataType: "jsonp"});
+
+      });
+
+
+    </script>
   </body>
 </html>
