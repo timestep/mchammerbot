@@ -24,55 +24,64 @@
 
     <script>
 
-      $('.control').click(function(e) {
+      $('.btn-large').data('url', "http://127.0.0.1:8071/motion-control/update");
+      $('#forward').data('movement', {forward: 1});
+      $('#backward').data('movement', {forward: -1});
+      $('#turn_right').data('movement', {turn: 1});
+      $('#turn_left').data('movement', {forward: -1});
+      $('#strafe_right').data('movement', {strafe: 1});
+      $('#strafe_left').data('movement', {strafe: -1});
+      $('#stop').data('movement', {forward: 0})
+
+      $('.btn-large').click(function(e) {
         var motionControl = $(this).data();
-        motionControl.direction
-        motionControl.value
-        $.ajax({url:"http://127.0.0.1:8071/motion-control/update", data: {forward: 1}, dataType: "jsonp"});
+        // motionControl.direction
+        // motionControl.value
+        $.ajax({url: motionControl.url, data: motionControl.movement, dataType: "jsonp"});
       });      
 
-      $('#forward').click(function() {
-        console.log("Forward.");
-        // test = $.get('http://127.0.0.1:8071/motion-control/update',{forward: 1},'jsonp');       
-        $.ajax({url:"http://127.0.0.1:8071/motion-control/update", data: {forward: 1}, dataType: "jsonp"});
-      });
+      // $('#forward').click(function() {
+      //   console.log("Forward.");
+      //   // test = $.get('http://127.0.0.1:8071/motion-control/update',{forward: 1},'jsonp');       
+      //   $.ajax({url:"http://127.0.0.1:8071/motion-control/update", data: {forward: 1}, dataType: "jsonp"});
+      // });
 
-      $('#backward').click(function() {
-        console.log("Backwards.");
-        // test = $.get('http://127.0.0.1:8071/motion-control/update',{forward: 1},'jsonp');       
-        $.ajax({url:"http://127.0.0.1:8071/motion-control/update", data: {forward: -1}, dataType: "jsonp"});
-      });
+      // $('#backward').click(function() {
+      //   console.log("Backwards.");
+      //   // test = $.get('http://127.0.0.1:8071/motion-control/update',{forward: 1},'jsonp');       
+      //   $.ajax({url:"http://127.0.0.1:8071/motion-control/update", data: {forward: -1}, dataType: "jsonp"});
+      // });
 
-      $('#turn_right').click(function() {
-        console.log("Turn Right.");
-        // test = $.get('http://127.0.0.1:8071/motion-control/update',{forward: 1},'jsonp');       
-        $.ajax({url:"http://127.0.0.1:8071/motion-control/update", data: {turn: 1}, dataType: "jsonp"});
-      });
+      // $('#turn_right').click(function() {
+      //   console.log("Turn Right.");
+      //   // test = $.get('http://127.0.0.1:8071/motion-control/update',{forward: 1},'jsonp');       
+      //   $.ajax({url:"http://127.0.0.1:8071/motion-control/update", data: {turn: 1}, dataType: "jsonp"});
+      // });
 
-      $('#turn_left').click(function() {
-        console.log("Turn Left.");
-        // test = $.get('http://127.0.0.1:8071/motion-control/update',{forward: 1},'jsonp');       
-        $.ajax({url:"http://127.0.0.1:8071/motion-control/update", data: {turn: -1}, dataType: "jsonp"});
-      });
+      // $('#turn_left').click(function() {
+      //   console.log("Turn Left.");
+      //   // test = $.get('http://127.0.0.1:8071/motion-control/update',{forward: 1},'jsonp');       
+      //   $.ajax({url:"http://127.0.0.1:8071/motion-control/update", data: {turn: -1}, dataType: "jsonp"});
+      // });
 
-      $('#strafe_right').click(function() {
-        console.log("Strafe Right.");
-        // test = $.get('http://127.0.0.1:8071/motion-control/update',{forward: 1},'jsonp');       
-        $.ajax({url:"http://127.0.0.1:8071/motion-control/update", data: {strafe: 1}, dataType: "jsonp"});
-      });
+      // $('#strafe_right').click(function() {
+      //   console.log("Strafe Right.");
+      //   // test = $.get('http://127.0.0.1:8071/motion-control/update',{forward: 1},'jsonp');       
+      //   $.ajax({url:"http://127.0.0.1:8071/motion-control/update", data: {strafe: 1}, dataType: "jsonp"});
+      // });
 
-      $('#strafe_left').click(function() {
-        console.log("Strafe Left.");
-        // test = $.get('http://127.0.0.1:8071/motion-control/update',{forward: 1},'jsonp');       
-        $.ajax({url:"http://127.0.0.1:8071/motion-control/update", data: {strafe: -1}, dataType: "jsonp"});
-      });
+      // $('#strafe_left').click(function() {
+      //   console.log("Strafe Left.");
+      //   // test = $.get('http://127.0.0.1:8071/motion-control/update',{forward: 1},'jsonp');       
+      //   $.ajax({url:"http://127.0.0.1:8071/motion-control/update", data: {strafe: -1}, dataType: "jsonp"});
+      // });
 
-      $('#stop').click(function() {
-        console.log("Stop");
-        // test = $.get('http://127.0.0.1:8071/motion-control/update',{forward: 1},'jsonp');       
-        $.ajax({url:"http://127.0.0.1:8071/motion-control/update", dataType: "jsonp"});
-        // $.ajax({url:"http://127.0.0.1:8071/motion-control/update", data: {strafe: 0}, dataType: "jsonp"});
-      });
+      // $('#stop').click(function() {
+      //   console.log("Stop");
+      //   // test = $.get('http://127.0.0.1:8071/motion-control/update',{forward: 1},'jsonp');       
+      //   $.ajax({url:"http://127.0.0.1:8071/motion-control/update", dataType: "jsonp"});
+      //   // $.ajax({url:"http://127.0.0.1:8071/motion-control/update", data: {strafe: 0}, dataType: "jsonp"});
+      // });
 
     </script>
   </body>
