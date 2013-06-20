@@ -44,7 +44,38 @@
         // motionControl.direction
         // motionControl.value
         $.ajax({url: motionControl.url, data: motionControl.movement, dataType: "jsonp"});
-      });      
+      });
+
+
+}
+
+my_combos = [
+{
+  "keys"          : "up",
+  "is_exclusive"  : true,
+  "on_keydown"    : function() {
+    $.ajax({url: "http://127.0.0.1:8071/motion-control/update", data: {forward: 1}, dataType: "jsonp"});
+  },
+  "on_keyup"      : function(e) {
+    $.ajax({url: "http://127.0.0.1:8071/motion-control/update", data: {forward: 0}, dataType:"jsonp"});
+  },
+  "this"          : my_scope
+},
+{
+  "keys"          : "up right",
+  "is_exclusive"  : true,
+  "on_keydown"    : function() {
+    $.ajax({url: "http://127.0.0.1:8071/motion-control/update", data: {forward: -1}, dataType: "jsonp"});
+  },
+  "on_keyup"      : function(e) {
+    $.ajax({url: "http://127.0.0.1:8071/motion-control/update", data: {forward: 0}, dataType:"jsonp"});
+  },
+  "this"          : my_scope  
+}
+];
+keypress.register_many(my_combos);
+
+
 
       // $('#forward').click(function() {
       //   console.log("Forward.");
