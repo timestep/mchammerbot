@@ -17,12 +17,10 @@
 
     <script>
 
-      $('.btn-large').click(function() {
+      // $('.btn-large').click(function() {
+        $.get("http://127.0.0.1:8071/motion-control/update", {forward: 1}, "jsonp");
 
-        console.log("Forward.");
-        $.ajax({type:"POST", url: "127.0.0.1:8071/motion-control/update", data: {forward: 1}, dataType: "jsonp"});
-
-      });
+      // });
 
 
     </script>
