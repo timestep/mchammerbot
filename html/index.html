@@ -18,8 +18,8 @@
       <button id='backward' class='btn-large'>Backward</button>
       <button id='turn_right' class='btn-large'>Turn Right</button>
       <button id='turn_left' class='btn-large'>Turn Left</button>
-      <button id='strafe_right' class='btn-large'>Strafe Right</button>
-      <button id='strafe_left' class='btn-large'>Strafe Left</button>
+      <button id='curve_right' class='btn-large'>Strafe Right</button>
+      <button id='curve_left' class='btn-large'>Strafe Left</button>
       <button id='stop' class='btn-large'>Stop</button>
      </div>  
     </div>
@@ -36,8 +36,8 @@
       $('#backward').data('movement', {forward: -1});
       $('#turn_right').data('movement', {turn: 1});
       $('#turn_left').data('movement', {turn: -1});
-      $('#strafe_right').data('movement', {strafe: 1});
-      $('#strafe_left').data('movement', {strafe: -1});
+      $('#curve_right').data('movement', {strafe: 1});
+      $('#curve_left').data('movement', {strafe: -1});
       $('#stop').data('movement', {forward: 0})
 
       $('.btn-large').click(function() {
@@ -48,33 +48,101 @@
       });
 
       
-      ///KEYBOARDINTERACTION
-      keycombos = {
-        "w": function() {$.ajax({url:"http://127.0.0.1:8071/motion-control/update", data:{forward:1}, dataType: "jsonp"}) },
-        "s": function() {$.ajax({url:"http://127.0.0.1:8071/motion-control/update", data:{forward:-1}, dataType: "jsonp"}) },
-        "a": function() {$.ajax({url:"http://127.0.0.1:8071/motion-control/update", data:{turn:1}, dataType: "jsonp"}) },
-        "d": function() {$.ajax({url:"http://127.0.0.1:8071/motion-control/update", data:{turn:-1}, dataType: "jsonp"}) },
-        "q": function() {$.ajax({url:"http://127.0.0.1:8071/motion-control/update", data:{strafe:1}, dataType: "jsonp"}) },
-        "e": function() {$.ajax({url:"http://127.0.0.1:8071/motion-control/update", data:{strafe:-1}, dataType: "jsonp"}) }
-      };
+      // ///KEYBOARDINTERACTION
+      // keycombos = {
+      //   "w": function() {$.ajax({url:"http://127.0.0.1:8071/motion-control/update", data:{forward:1}, dataType: "jsonp"}) },
+      //   "s": function() {$.ajax({url:"http://127.0.0.1:8071/motion-control/update", data:{forward:-1}, dataType: "jsonp"}) },
+      //   "a": function() {$.ajax({url:"http://127.0.0.1:8071/motion-control/update", data:{turn:1}, dataType: "jsonp"}) },
+      //   "d": function() {$.ajax({url:"http://127.0.0.1:8071/motion-control/update", data:{turn:-1}, dataType: "jsonp"}) },
+      //   "w a": function() {$.ajax({url:"http://127.0.0.1:8071/motion-control/update", data:{strafe:1}, dataType: "jsonp"}) },
+      //   "w d": function() {$.ajax({url:"http://127.0.0.1:8071/motion-control/update", data:{strafe:-1}, dataType: "jsonp"}) }
+      // };
 
-      var my_combos = [];
-      var my_scope = this;
-        
-      for (i in keycombos) {
-        tempVal = {
-          "keys"          : i,
-          "is_exclusive"  : true,
-          "val":keycombos[i],
-          "on_keydown"    : keycombos[i],
-          "on_keyup"      : function() {
+  my_scope = this;
+  my_combos = [
+    {
+        "keys"          : "up right",
+        "is_exclusive"  : true,
+        "on_keydown"    : function() {
+            $.ajax({url:"http://127.0.0.1:8071/motion-control/update", data:{strafe:1}, dataType: "jsonp"});
+        },
+        "on_keyup"      : function(e) {
             $.ajax({url:"http://127.0.0.1:8071/motion-control/update", dataType: "jsonp"});
-          },
-          "this"          : my_scope
-          };
-          my_combos.push(tempVal);  
-        }
-      keypress.register_many(my_combos);
+        },
+        "this"          : my_scope
+    },
+    {
+        "keys"          : "up left",
+        "is_exclusive"  : true,
+        "on_keydown"    : function() {
+            $.ajax({url:"http://127.0.0.1:8071/motion-control/update", data:{strafe:-1}, dataType: "jsonp"});
+        },
+        "on_keyup"      : function(e) {
+            $.ajax({url:"http://127.0.0.1:8071/motion-control/update", dataType: "jsonp"});
+        },
+        "this"          : my_scope
+    }, 
+    {
+        "keys"          : "up",
+        "is_exclusive"  : false,
+        "on_keydown"    : function() {
+            $.ajax({url:"http://127.0.0.1:8071/motion-control/update", data:{forward:1}, dataType: "jsonp"});
+        },
+        "on_keyup"      : function(e) {
+            $.ajax({url:"http://127.0.0.1:8071/motion-control/update", dataType: "jsonp"});
+        },
+        "this"          : my_scope
+    },
+    {
+        "keys"          : "down",
+        "is_exclusive"  : false,
+        "on_keydown"    : function() {
+            $.ajax({url:"http://127.0.0.1:8071/motion-control/update", data:{forward:-1}, dataType: "jsonp"});
+        },
+        "on_keyup"      : function(e) {
+            $.ajax({url:"http://127.0.0.1:8071/motion-control/update", dataType: "jsonp"});
+        },
+        "this"          : my_scope
+    },
+    {
+        "keys"          : "right",
+        "is_exclusive"  : false,
+        "on_keydown"    : function() {
+            $.ajax({url:"http://127.0.0.1:8071/motion-control/update", data:{turn:1}, dataType: "jsonp"});
+        },
+        "on_keyup"      : function(e) {
+            $.ajax({url:"http://127.0.0.1:8071/motion-control/update", dataType: "jsonp"});
+        },
+        "this"          : my_scope
+    },
+    {
+        "keys"          : "left",
+        "is_exclusive"  : false,
+        "on_keydown"    : function() {
+            $.ajax({url:"http://127.0.0.1:8071/motion-control/update", data:{turn:-1}, dataType: "jsonp"});
+        },
+        "on_keyup"      : function(e) {
+            $.ajax({url:"http://127.0.0.1:8071/motion-control/update", dataType: "jsonp"});
+        },
+        "this"          : my_scope
+    },               
+  ];
+
+
+      // for (i in keycombos) {
+      //   tempVal = {
+      //     "keys"          : i,
+      //     "is_exclusive"  : true,
+      //     "val":keycombos[i],
+      //     "on_keydown"    : keycombos[i],
+      //     "on_keyup"      : function() {
+      //       $.ajax({url:"http://127.0.0.1:8071/motion-control/update", dataType: "jsonp"});
+      //     },
+      //     "this"          : my_scope
+      //     };
+      //     my_combos.push(tempVal);  
+      //   }
+  keypress.register_many(my_combos);
          
     </script>
   </body>

@@ -24,7 +24,7 @@ bot.connect()
 bindings =
   forward: {a: +1, s: +1, d: +1, f: +1}
   turn: {a: +1, s: -1, d: +1, f: -1}
-  strafe: {a: +1, s: -1, d: -1, f: +1}
+  strafe: {a: +1, s: +0.5, d: +1, f: +0.5}
 
 motionControlSettings = { forward: 0, turn: 0, strafe: 0 }
 
