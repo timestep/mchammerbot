@@ -35,13 +35,13 @@ $('#big').mousedown(function() {
     , 1);
   timeoutId = setTimeout(function() {
     acc = 0.4}
-    , 500);
+    , 700);
   timeoutId = setTimeout(function() {
     acc = 0.6}
-    , 1000);
+    , 1400);
   timeoutId = setTimeout(function() {
     acc = 1}
-    , 1500);
+    , 2100);
   }).bind('mouseup mouseleave', function() {
   $.ajax({url: serverurl, dataType: "jsonp"});
   clearTimeout(timeoutId);
@@ -57,13 +57,13 @@ $('#left').mouseover(function() {
     , 1);
   timeoutId = setTimeout(function() {
     $.ajax({url: serverurl, data: {forward: 1*acc, turn:-0.8*acc}, dataType: "jsonp"})}
-    , 500);
+    , 700);
   timeoutId = setTimeout(function() {
     $.ajax({url: serverurl, data: {forward: 1*acc, turn:-0.8*acc}, dataType: "jsonp"})}
-    , 1000);
+    , 1400);
   timeoutId = setTimeout(function() {
     $.ajax({url: serverurl, data: {forward: 1*acc, turn:-0.8*acc}, dataType: "jsonp"})}
-    , 1500); 
+    , 2100); 
   }
 })
 
@@ -75,13 +75,13 @@ $('#straight').mouseover(function() {
     , 1);
   timeoutId = setTimeout(function() {
     $.ajax({url: serverurl, data: {forward: 1*acc}, dataType: "jsonp"})}
-    , 500);
+    , 100);
   timeoutId = setTimeout(function() {
     $.ajax({url: serverurl, data: {forward: 1*acc}, dataType: "jsonp"})}
-    , 1000);
+    , 2000);
   timeoutId = setTimeout(function() {
     $.ajax({url: serverurl, data: {forward: 1*acc}, dataType: "jsonp"})}
-    , 1500); 
+    , 300); 
   }
 })
 
@@ -93,12 +93,12 @@ $('#right').mouseover(function() {
     , 1);
   timeoutId = setTimeout(function() {
     $.ajax({url: serverurl, data: {forward: 1*acc, turn:0.8*acc}, dataType: "jsonp"})}
-    , 500);
+    , 700);
   timeoutId = setTimeout(function() {
     $.ajax({url: serverurl, data: {forward: 1*acc, turn:0.8*acc}, dataType: "jsonp"})}
-    , 1000);
+    , 1400);
   timeoutId = setTimeout(function() {
     $.ajax({url: serverurl, data: {forward: 1*acc, turn:0.8*acc}, dataType: "jsonp"})}
-    , 1500); 
+    , 2100); 
   }
 })
