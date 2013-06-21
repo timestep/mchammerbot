@@ -1,0 +1,27 @@
+#big {
+	background-color: gray;
+	width: 510px;
+	height: 300px;
+}
+
+#left {
+	display: inline-block;
+	width: 150px;
+	height: 200px;
+	background-color: #F0FFFF;
+}
+
+#straight {
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+	background-color: #7FFFD4;
+}
+
+
+#right {
+	display: inline-block;
+	width: 150px;
+	height: 200px;
+	background-color: #F0FFFF;
+}
