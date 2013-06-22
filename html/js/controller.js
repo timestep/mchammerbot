@@ -75,13 +75,13 @@ $('#straight').mouseover(function() {
     , 1);
   timeoutId = setTimeout(function() {
     $.ajax({url: serverurl, data: {forward: 1*acc}, dataType: "jsonp"})}
-    , 100);
+    , 700);
   timeoutId = setTimeout(function() {
     $.ajax({url: serverurl, data: {forward: 1*acc}, dataType: "jsonp"})}
-    , 2000);
+    , 1400);
   timeoutId = setTimeout(function() {
     $.ajax({url: serverurl, data: {forward: 1*acc}, dataType: "jsonp"})}
-    , 300); 
+    , 2100); 
   }
 })
 
@@ -102,3 +102,14 @@ $('#right').mouseover(function() {
     , 2100); 
   }
 })
+
+//stick that switches between Drive and Reverse
+var reverse = false;
+$('#stick').click(function () {
+  if ($('#stick').css('background-color') === "rgb(255, 255, 0)") {
+    $('#stick').css('background-color', 'green');
+    reverse = true;
+  } else {
+    $('#stick').css('background-color', 'yellow');
+    reverse = false;
+  }})
