@@ -27,21 +27,37 @@ $('.btn-large').mouseleave(function() {
 serverurl = "http://127.0.0.1:8071/motion-control/update"
 timeoutID = 0;
 clicked = false;
+reverse = false;
+acc = 0;
 //chunk for accelerator
 $('#big').mousedown(function() {
   clicked = true;
-  timeoutId = setTimeout(function() {
-    acc = 0.2}
-    , 1);
-  timeoutId = setTimeout(function() {
-    acc = 0.4}
-    , 700);
-  timeoutId = setTimeout(function() {
-    acc = 0.6}
-    , 1400);
-  timeoutId = setTimeout(function() {
-    acc = 1}
-    , 2100);
+  if (reverse === false) {
+    timeoutId = setTimeout(function() {
+      acc = 0.2}
+      , 1);
+    timeoutId = setTimeout(function() {
+      acc = 0.4}
+      , 700);
+    timeoutId = setTimeout(function() {
+      acc = 0.6}
+      , 1400);
+    timeoutId = setTimeout(function() {
+      acc = 1}
+      , 2100);}
+  else {
+    timeoutId = setTimeout(function() {
+      acc = 0.1}
+      , 1);
+    timeoutId = setTimeout(function() {
+      acc = 0.2}
+      , 700);
+    timeoutId = setTimeout(function() {
+      acc = 0.4}
+      , 1400);
+    timeoutId = setTimeout(function() {
+      acc = 0.5}
+      , 2100);}
   }).bind('mouseup mouseleave', function() {
   $.ajax({url: serverurl, dataType: "jsonp"});
   clearTimeout(timeoutId);
@@ -104,7 +120,7 @@ $('#right').mouseover(function() {
 })
 
 //stick that switches between Drive and Reverse
-var reverse = false;
+
 $('#stick').click(function () {
   if ($('#stick').css('background-color') === "rgb(255, 255, 0)") {
     $('#stick').css('background-color', 'green');
