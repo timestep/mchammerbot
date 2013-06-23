@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Bender</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/style.css" rel="stylesheet" media="screen">
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/keypress.js"></script>
@@ -17,13 +17,22 @@
       <button id='backward' class='btn-large'>Backward</button>
       <button id='turn_right' class='btn-large'>Turn Right</button>
       <button id='turn_left' class='btn-large'>Turn Left</button>
-      <button id='strafe_right' class='btn-large'>Strafe Right</button>
-      <button id='strafe_left' class='btn-large'>Strafe Left</button>
+      <button id='curve_right' class='btn-large'>Strafe Right</button>
+      <button id='curve_left' class='btn-large'>Strafe Left</button>
       <button id='stop' class='btn-large'>Stop</button>
      </div>  
     </div>
 
+    <div id="wrapper">  
+      <div id="big">
+        <div id="left"></div>
+        <div id="straight"></div>
+        <div id="right"></div>
+      </div>
+      <div id="stick"></div>
+    </div>
+
     <script src="js/controller.js"></script>
-    <script src="js/uimove.js"></script>
+
   </body>
 </html>
