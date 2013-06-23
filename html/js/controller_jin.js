@@ -27,12 +27,12 @@ $('.btn-large').mouseleave(function() {
 serverurl = "http://127.0.0.1:8071/motion-control/update"
 timeoutID = 0;
 clicked = false;
-reverse = false;
+reverse = 1;
 acc = 0;
 //chunk for accelerator
 $('#big').mousedown(function() {
   clicked = true;
-  if (reverse === false) {
+  if (reverse === 1) {
     timeoutId = setTimeout(function() {
       acc = 0.2}
       , 1);
@@ -69,16 +69,16 @@ $('#big').mousedown(function() {
 $('#left').mouseover(function() {
   if (clicked) {
   timeoutId = setTimeout(function() {
-    $.ajax({url: serverurl, data: {forward: 1*acc, turn:-0.8*acc}, dataType: "jsonp"})}
+    $.ajax({url: serverurl, data: {forward: 1*acc*reverse, turn:-0.8*acc*reverse}, dataType: "jsonp"})}
     , 1);
   timeoutId = setTimeout(function() {
-    $.ajax({url: serverurl, data: {forward: 1*acc, turn:-0.8*acc}, dataType: "jsonp"})}
+    $.ajax({url: serverurl, data: {forward: 1*acc*reverse, turn:-0.8*acc*reverse}, dataType: "jsonp"})}
     , 700);
   timeoutId = setTimeout(function() {
-    $.ajax({url: serverurl, data: {forward: 1*acc, turn:-0.8*acc}, dataType: "jsonp"})}
+    $.ajax({url: serverurl, data: {forward: 1*acc*reverse, turn:-0.8*acc*reverse}, dataType: "jsonp"})}
     , 1400);
   timeoutId = setTimeout(function() {
-    $.ajax({url: serverurl, data: {forward: 1*acc, turn:-0.8*acc}, dataType: "jsonp"})}
+    $.ajax({url: serverurl, data: {forward: 1*acc*reverse, turn:-0.8*acc*reverse}, dataType: "jsonp"})}
     , 2100); 
   }
 })
@@ -87,16 +87,16 @@ $('#left').mouseover(function() {
 $('#straight').mouseover(function() {
   if (clicked) {
   timeoutId = setTimeout(function() {
-    $.ajax({url: serverurl, data: {forward: 1*acc}, dataType: "jsonp"})}
+    $.ajax({url: serverurl, data: {forward: 1*acc*reverse}, dataType: "jsonp"})}
     , 1);
   timeoutId = setTimeout(function() {
-    $.ajax({url: serverurl, data: {forward: 1*acc}, dataType: "jsonp"})}
+    $.ajax({url: serverurl, data: {forward: 1*acc*reverse}, dataType: "jsonp"})}
     , 700);
   timeoutId = setTimeout(function() {
-    $.ajax({url: serverurl, data: {forward: 1*acc}, dataType: "jsonp"})}
+    $.ajax({url: serverurl, data: {forward: 1*acc*reverse}, dataType: "jsonp"})}
     , 1400);
   timeoutId = setTimeout(function() {
-    $.ajax({url: serverurl, data: {forward: 1*acc}, dataType: "jsonp"})}
+    $.ajax({url: serverurl, data: {forward: 1*acc*reverse}, dataType: "jsonp"})}
     , 2100); 
   }
 })
@@ -105,16 +105,16 @@ $('#straight').mouseover(function() {
 $('#right').mouseover(function() {
   if (clicked) {
   timeoutId = setTimeout(function() {
-    $.ajax({url: serverurl, data: {forward: 1*acc, turn:0.8*acc}, dataType: "jsonp"})}
+    $.ajax({url: serverurl, data: {forward: 1*acc*reverse, turn:0.8*acc*reverse}, dataType: "jsonp"})}
     , 1);
   timeoutId = setTimeout(function() {
-    $.ajax({url: serverurl, data: {forward: 1*acc, turn:0.8*acc}, dataType: "jsonp"})}
+    $.ajax({url: serverurl, data: {forward: 1*acc*reverse, turn:0.8*acc*reverse}, dataType: "jsonp"})}
     , 700);
   timeoutId = setTimeout(function() {
-    $.ajax({url: serverurl, data: {forward: 1*acc, turn:0.8*acc}, dataType: "jsonp"})}
+    $.ajax({url: serverurl, data: {forward: 1*acc*reverse, turn:0.8*acc*reverse}, dataType: "jsonp"})}
     , 1400);
   timeoutId = setTimeout(function() {
-    $.ajax({url: serverurl, data: {forward: 1*acc, turn:0.8*acc}, dataType: "jsonp"})}
+    $.ajax({url: serverurl, data: {forward: 1*acc*reverse, turn:0.8*acc*reverse}, dataType: "jsonp"})}
     , 2100); 
   }
 })
@@ -124,8 +124,8 @@ $('#right').mouseover(function() {
 $('#stick').click(function () {
   if ($('#stick').css('background-color') === "rgb(255, 255, 0)") {
     $('#stick').css('background-color', 'green');
-    reverse = true;
+    reverse = -0.7;
   } else {
     $('#stick').css('background-color', 'yellow');
-    reverse = false;
+    reverse = 1;
   }})
