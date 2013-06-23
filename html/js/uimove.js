@@ -19,26 +19,47 @@ $( document ).ready(function() {
 	}
 	var destination = [x,y];
 
-
-	if (destination[0]!=0||destination[1]!=0){
-		if x>0{
-			if y>0{
-				moveBot({forward:1});
-				setTimeout({
+	var movement = function(motion){
+		if (destination[0]!=0||destination[1]!=0){
+			if x>0{
+				if y>0{
+					moveBot({forward:1});
+					setTimeout({
 						stopBot();
 						moveBot({strafe:1});
 						setTimeout(stopBot,destination[y]);
 					}
 					,destination[x]);
-			};
-			else{
-				moveBot({forward:1});
-				setTimeout({
+				};
+				else{
+					moveBot({forward:1});
+					setTimeout({
 						stopBot();
 						moveBot({strafe:-1});
 						setTimeout(stopBot,destination[y]);
 					}
 					,destination[x]);
+				};
+			};
+			else {
+				if y>0{
+					moveBot({forward:-1});
+					setTimeout({
+						stopBot();
+						moveBot({strafe:1});
+						setTimeout(stopBot,destination[y]);
+					}
+					,destination[x]);
+				};
+				else{
+					moveBot({forward:-1});
+					setTimeout({
+						stopBot();
+						moveBot({strafe:-1});
+						setTimeout(stopBot,destination[y]);
+					}
+					,destination[x]);
+				}; 
 			};
 		};
 	};
