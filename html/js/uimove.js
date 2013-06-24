@@ -1,5 +1,6 @@
   //GETS Methods
 $( document ).ready(function() {
+
 	var getMotionOfBot = function(){
 		$.ajax({url:"http://127.0.0.1:8071/motors", dataType:"jsonp",success: function(data){
 			aMotorValue = data.a 
@@ -8,8 +9,8 @@ $( document ).ready(function() {
 		    fMotorValue = data.f
 		}});
 	};
-	getMotionOfBot();
 
+	getMotionOfBot();
 
 	var moveBot = function(motion){
 		$.ajax({url: "http://127.0.0.1:8071/motion-control/update", data: motion, dataType: "jsonp"});
@@ -63,5 +64,8 @@ $( document ).ready(function() {
 			};
 		};
 	};
+
+
+	
 });
 
