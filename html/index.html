@@ -2,28 +2,63 @@
 <html>
   <head>
     <title>Bender</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <script src="http://code.jquery.com/jquery.js"></script>
+    <link href="css/style.css" rel="stylesheet" media="screen">
+   <link href='http://fonts.googleapis.com/css?family=Ruda:400,900' rel='stylesheet' type='text/css'>
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/keypress.js"></script>
+    <style>
+    #draggable { width: 90px;  
+    cursor:pointer; cursor:hand;  }
+    </style>
+
   </head>
   <body>
   
-    <div class="container">
+    <div class="container">    
       <div class="hero-unit">
+      <div id="bender">
       <h1> Bender Bending Rodriguez </h1>
-      <p>Kiss my shiny metal ass.</p>
-      <button id='forward' class='btn-large'>Forward</button>
-      <button id='backward' class='btn-large'>Backward</button>
-      <button id='turn_right' class='btn-large'>Turn Right</button>
-      <button id='turn_left' class='btn-large'>Turn Left</button>
-      <button id='strafe_right' class='btn-large'>Strafe Right</button>
-      <button id='strafe_left' class='btn-large'>Strafe Left</button>
-      <button id='stop' class='btn-large'>Stop</button>
-     </div>  
-    </div>
+      </div>
+      <div id="shiny-metal">
+      <h3>Kiss my shiny metal ass.</h3></div>
+      <div id="control">   
+      <button id='turn_left' class='btn-large'></button>
+      <button id='forward' class='btn-large'></button>   
+      <button id='turn_right' class='btn-large'></button>
+      <button id='strafe_left' class='btn-large'></button>
+      <button id='stop' class='btn-large'></button>
+	  <button id='strafe_right' class='btn-large'></button>
+      <button id='backward' class='btn-large'></button>
+	</div>
+     </div> 
+     <div id="draggable" >
+         <img src="img/car.png" border="0px" alt="Drag me" title="Drag me">
+	</div>
+
+    <script>
+
+$('#draggable').draggable({
+    drop: function( event, ui ) {
+
+        // position of the draggable minus position of the droppable
+        // relative to the document
+        var $newPosX = ui.offset.left - $(this).offset().left;
+        var $newPosY = ui.offset.top - $(this).offset().top;
+
+    }
+});
+
+    </script>
+
 
     <script src="js/controller.js"></script>
-    <script src="js/uimove.js"></script>
+
+  <!--  <script src="js/uimove.js"></script>-->
+
+
+
+
   </body>
 </html>

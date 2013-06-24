@@ -1,4 +1,5 @@
-/*!
+<<<<<<< HEAD
+!
  * Bootstrap v2.3.2
  *
  * Copyright 2012 Twitter, Inc
@@ -6,7 +7,7 @@
  * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
- */
+ 
 
 .clearfix {
   *zoom: 1;
@@ -99,14 +100,10 @@ sub {
 }
 
 img {
-  width: auto\9;
-  height: auto;
-  max-width: 100%;
-  vertical-align: middle;
-  border: 0;
-  -ms-interpolation-mode: bicubic;
+margin-top: 320px;
+margin-left: 400px;
+z-index: -99999;
 }
-
 #map_canvas img,
 .google-maps img {
   max-width: none;
@@ -221,13 +218,13 @@ textarea {
   }
 }
 
+
 body {
   margin: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  line-height: 20px;
   color: #333333;
-  background-color: #ffffff;
+  background: url(../img/grass.jpg) repeat #2e9314;
+  font: 14px/20px "Ruda", Helvetica, Arial, sans-serif;
+  font-weight: 900;
 }
 
 a {
@@ -1159,7 +1156,7 @@ input[type="color"]:focus,
   border-color: rgba(82, 168, 236, 0.8);
   outline: 0;
   outline: thin dotted \9;
-  /* IE6-9 */
+   IE6-9 
 
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
@@ -1187,10 +1184,10 @@ input[type="checkbox"] {
 select,
 input[type="file"] {
   height: 30px;
-  /* In IE7, the height of the select element cannot be changed by height, only font-size */
+   In IE7, the height of the select element cannot be changed by height, only font-size 
 
   *margin-top: 4px;
-  /* For IE7, add top margin to align select with labels */
+   For IE7, add top margin to align select with labels 
 
   line-height: 30px;
 }
@@ -1827,7 +1824,7 @@ input.search-query {
   padding-right: 4px \9;
   padding-left: 14px;
   padding-left: 4px \9;
-  /* IE7-8 doesn't have border-radius, so don't indent the padding */
+   IE7-8 doesn't have border-radius, so don't indent the padding 
 
   margin-bottom: 0;
   -webkit-border-radius: 15px;
@@ -1835,7 +1832,7 @@ input.search-query {
           border-radius: 15px;
 }
 
-/* Allow for input prepend/append in search forms */
+ Allow for input prepend/append in search forms 
 
 .form-search .input-append .search-query,
 .form-search .input-prepend .search-query {
@@ -2287,7 +2284,7 @@ table th[class*="span"],
   background-repeat: no-repeat;
 }
 
-/* White icons with optional class, or on hover/focus/active states of certain elements */
+ White icons with optional class, or on hover/focus/active states of certain elements 
 
 .icon-white,
 .nav-pills > .active > a > [class^="icon-"],
@@ -3290,11 +3287,18 @@ button.close {
 }
 
 .btn-large {
-  padding: 11px 19px;
-  font-size: 17.5px;
-  -webkit-border-radius: 6px;
-     -moz-border-radius: 6px;
-          border-radius: 6px;
+/*  padding: 11px 19px;*/
+  font-size: 12px;
+  width: 70px;
+  height: 70px;
+  border: 1px solid #e8e8e8;
+  background-color: #f6f6f6;
+    -webkit-border-radius: 13px;
+       -moz-border-radius: 13px;
+            border-radius: 13px;
+  
+  margin: 3px;
+          
 }
 
 .btn-large [class^="icon-"],
@@ -3830,7 +3834,7 @@ input[type="submit"].btn.btn-mini {
 .btn-group-vertical {
   display: inline-block;
   *display: inline;
-  /* IE7 inline-block hack */
+   IE7 inline-block hack 
 
   *zoom: 1;
 }
@@ -4182,7 +4186,7 @@ input[type="submit"].btn.btn-mini {
   border-bottom-color: #005580;
 }
 
-/* move down carets for tabs */
+ move down carets for tabs 
 
 .nav-tabs .dropdown-toggle .caret {
   margin-top: 8px;
@@ -6116,32 +6120,60 @@ a.badge:focus {
 .carousel-caption p {
   margin-bottom: 0;
 }
-
-.hero-unit {
-  padding: 60px;
-  margin-bottom: 30px;
-  font-size: 18px;
-  font-weight: 200;
-  line-height: 30px;
-  color: inherit;
-  background-color: #eeeeee;
-  -webkit-border-radius: 6px;
-     -moz-border-radius: 6px;
-          border-radius: 6px;
+#bender{
+	position: fixed;
+	
+}
+#shiny-metal{
+	position: fixed;
+	
 }
 
-.hero-unit h1 {
-  margin-bottom: 0;
-  font-size: 60px;
-  line-height: 1;
-  letter-spacing: -1px;
-  color: inherit;
+.hero-unit {
+padding: 40px;
+margin-bottom: 30px;
+font-size: 18px;
+font-weight: 200;
+line-height: 20px;
+-webkit-border-radius: 6px;
+-moz-border-radius: 6px;
+border-radius: 6px;
+color: #f6f6f6;
+text-align: center;
+text-shadow: 3px 0 3px #303030;
+z-index: 999999;
+}
+
+.hero-unit h1{ 
+
+margin-left: 160px;
+  font-size: 45px;
+  text-align: center;
+   line-height: 1em;
+/*  letter-spacing: px;*/
+
+}
+.hero-unit h3{
+margin-top: 60px;
+margin-left: 280px;
+  font-size: 25px;
+   text-align: center;
+  line-height: 2em;
+
+
 }
 
 .hero-unit li {
   line-height: 30px;
 }
 
+#control{
+position: fixed;
+margin-left: 750px;
+margin-top: 320px;
+	width:  300px;
+	height:  240px;
+}
 .pull-right {
   float: right;
 }
@@ -6164,4 +6196,72 @@ a.badge:focus {
 
 .affix {
   position: fixed;
+}
+#forward{
+	background-image: url(../img/control.png);	
+	background-position: -82px 5px ;
+}
+
+#turn_left{
+	background-image: url(../img/control.png);	
+	background-position: 5px 5px ;
+}
+
+#turn_right{
+	background-image: url(../img/control.png);	
+	background-position: -82px 5px ;
+}
+#strafe_left{
+	background-image: url(../img/control.png);	
+	background-position: 0px -78px ;
+}
+#strafe_right{
+	background-image: url(../img/control.png);	
+	background-position: -82px 5px ;	
+}
+#stop{
+	background-image: url(../img/control.png);	
+	background-position: -84px -75px ;	
+}
+#backward{
+	background-image: url(../img/control.png);	
+	background-position: -82px -160px ;	
+}
+
+=======
+#big {
+	display: inline-block;
+	background-color: gray;
+	width: 510px;
+	height: 300px;
+}
+
+#left {
+	display: inline-block;
+	width: 150px;
+	height: 200px;
+	background-color: #F0FFFF;
+}
+
+#straight {
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+	background-color: #7FFFD4;
+}
+
+
+#right {
+	display: inline-block;
+	width: 150px;
+	height: 200px;
+	background-color: #F0FFFF;
+}
+
+#stick {
+	display: inline-block;
+	width: 40px;
+	height: 200px;
+	background-color: yellow;
+	border-left: 50px;
 }
