@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 !
  * Bootstrap v2.3.2
  *
@@ -6119,6 +6120,14 @@ a.badge:focus {
 .carousel-caption p {
   margin-bottom: 0;
 }
+#bender{
+	position: fixed;
+	
+}
+#shiny-metal{
+	position: fixed;
+	
+}
 
 .hero-unit {
 padding: 40px;
@@ -6136,7 +6145,7 @@ z-index: 999999;
 }
 
 .hero-unit h1{ 
-position: fixed;
+
 margin-left: 160px;
   font-size: 45px;
   text-align: center;
@@ -6145,7 +6154,6 @@ margin-left: 160px;
 
 }
 .hero-unit h3{
-position: fixed;
 margin-top: 60px;
 margin-left: 280px;
   font-size: 25px;
@@ -6220,39 +6228,40 @@ margin-top: 320px;
 	background-position: -82px -160px ;	
 }
 
-
-/*#forward{
-	background-image: url(../img/control_forward.png);	
+=======
+#big {
+	display: inline-block;
+	background-color: gray;
+	width: 510px;
+	height: 300px;
 }
 
-#turn_left{
-	background-image: url(../img/control_turn_left.png);	
+#left {
+	display: inline-block;
+	width: 150px;
+	height: 200px;
+	background-color: #F0FFFF;
 }
 
-#turn_right{
-	background-image: url(../img/control_turn_right.png);	
+#straight {
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+	background-color: #7FFFD4;
 }
 
-#strafe_left{
-	background-image: url(../img/control_left.png);	
+
+#right {
+	display: inline-block;
+	width: 150px;
+	height: 200px;
+	background-color: #F0FFFF;
 }
 
-#strafe_right{
-	background-image: url(../img/control_right.png);	
+#stick {
+	display: inline-block;
+	width: 40px;
+	height: 200px;
+	background-color: yellow;
+	border-left: 50px;
 }
-
-#stop{
-	background-image: url(../img/control_stop.png);	
-}
-
-#backward{
-	background-image: url(../img/control_backward.png);	
-	
-}*/
-
-
-
-/*#draggable {
-  width: 90px;  
-  cursor:pointer; cursor:hand; 
-}*/
