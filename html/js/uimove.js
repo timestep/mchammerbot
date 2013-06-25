@@ -1,6 +1,19 @@
   //GETS Methods
 $( document ).ready(function() {
 
+	$('#draggable').draggable({
+        drop: function( event, ui ) {
+
+            // position of the draggable minus position of the droppable
+            // relative to the document
+            $newPosX = ui.offset.left - $(this).offset().left;
+            $newPosY = ui.offset.top - $(this).offset().top;
+            destination[0] = $newPosX;
+            destination[1] = $newPosY;
+            movement();
+        };
+    });
+
 	var getMotionOfBot = function(){
 		$.ajax({url:"http://127.0.0.1:8071/motors", dataType:"jsonp",success: function(data){
 			aMotorValue = data.a 
@@ -18,9 +31,8 @@ $( document ).ready(function() {
 	var stopBot = function(){
 		$.ajax({url: "http://127.0.0.1:8071/motion-control/update", dataType: "jsonp"});
 	}
-	var destination = [x,y];
-
-	var movement = function(motion){
+	
+	var movement = function(){
 		if (destination[0]!=0||destination[1]!=0){
 			if x>0{
 				if y>0{
@@ -28,7 +40,7 @@ $( document ).ready(function() {
 					setTimeout({
 						stopBot();
 						moveBot({strafe:1});
-						setTimeout(stopBot,destination[y]);
+						setTimeout(stopBot,destination[1]);
 					}
 					,destination[x]);
 				};
@@ -37,9 +49,9 @@ $( document ).ready(function() {
 					setTimeout({
 						stopBot();
 						moveBot({strafe:-1});
-						setTimeout(stopBot,destination[y]);
+						setTimeout(stopBot,destination[1]);
 					}
-					,destination[x]);
+					,destination[0]);
 				};
 			};
 			else {
@@ -48,7 +60,7 @@ $( document ).ready(function() {
 					setTimeout({
 						stopBot();
 						moveBot({strafe:1});
-						setTimeout(stopBot,destination[y]);
+						setTimeout(stopBot,destination[1]);
 					}
 					,destination[x]);
 				};
@@ -57,12 +69,13 @@ $( document ).ready(function() {
 					setTimeout({
 						stopBot();
 						moveBot({strafe:-1});
-						setTimeout(stopBot,destination[y]);
+						setTimeout(stopBot,destination[1]);
 					}
-					,destination[x]);
+					,destination[0]);
 				}; 
 			};
 		};
+		destination = 0;
 	};
 
 
