@@ -1,4 +1,6 @@
 # Mc HammerBot
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/timestep/mchammerbot.svg)](https://greenkeeper.io/)
 Playing with a robot to learn AJAX, CoffeeScript, and a touch of Node.js.
 
 ## Installation
